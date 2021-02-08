@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8"/>
+  <title>Page Title NEW!!</title>
+  <style>
+      body{background-color: beige;}
+    .special {color: rgb(86, 74, 153)}
+    .operator{font-weight: bold;}
+    #result {border: solid 1pt;
+    border-color: grey;
+    color: rgb(37, 133, 146)}
+  </style>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script>
+    function select_operation() {
+        const x = document.getElementById('first').value;
+        const y = document.getElementById('second').value;
+       
+        if(document.getElementById('operation').value == "sum"){
+        document.getElementById('result').innerHTML= parseInt(x)+parseInt(y);
+    } else if(document.getElementById('operation').value == "rest"){
+        document.getElementById('result').innerHTML= parseInt(x)-parseInt(y);
+    } else if(document.getElementById('operation').value == "mult"){
+        document.getElementById('result').innerHTML= parseInt(x)*parseInt(y);
+    } else{
+        document.getElementById('result').innerHTML= parseInt(x)/parseInt(y);
+    }
+    }
+  </script>
+</head>
+
+<body>
+    <div class = "special"> My first selection </div>
+    <input id="first" placeholder="first number">
+    <br>
+    <select id = "operation">
+      <option value="sum">+</option>
+      <option value="rest">-</option>
+      <option value="mult">*</option>
+      <option value="div">/</option>
+    </select>
+    <br>
+    <input id="second" placeholder="second number">
+    <br>
+    <button id="equalTo" onclick="select_operation()">=</button>
+    <div id="result">result</div>
+</body>
